@@ -1,0 +1,5 @@
+The tools in this folder were built to quickly and easily convert videos into more compatible formats.
+
+The output format is compatible with most (all?) commonly-used media players.  Large, Medium, and Small refer to the desired output file size.
+
+USE: Just drag the video(s) onto the tool you wish to use and hit 'OK' to each dialog.
