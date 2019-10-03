@@ -58,7 +58,7 @@
 mainLoc = Left(WScript.ScriptFullName, InStrRev(WScript.ScriptFullName, "\")) 'Location of ffmpeg.exe - should be in same folder or \bin subfolder
 binLoc = mainLoc & "bin\"	
 Set fso = CreateObject("Scripting.FileSystemObject")
-if not fso.FileExists(binLoc) and not fso.FileExists(mainLoc) then
+if not fso.FileExists(binLoc & "ffmpeg.exe") and not fso.FileExists(mainLoc & "ffmpeg.exe") then
 	msgbox "FFMPEG not found!" & vbNewLine & vbNewLine & "Please put FFMPEG.exe in same folder as ReEncode script" & vbnewline & "FFMPEG is available from https://www.ffmpeg.org/"
 else
 	If WScript.Arguments.Count > 0 Then
