@@ -5,7 +5,7 @@
 'This script automates re-encoding the video using a much more efficient encoder
 
 'TO USE:
-'	Drag and drop the video(s) (ONE AT A TIME) onto the vbscript file
+'	Drag and drop the video(s) onto the vbscript file
 
 'FFMPEG is used to re-encode the video using libx264 codec
 'The video resolution can also be scaled
