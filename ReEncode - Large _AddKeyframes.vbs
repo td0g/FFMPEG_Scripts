@@ -58,6 +58,8 @@
 mainLoc = Left(WScript.ScriptFullName, InStrRev(WScript.ScriptFullName, "\")) 'Location of ffmpeg.exe - should be in same folder or \bin subfolder
 binLoc = mainLoc & "bin\"	
 Set fso = CreateObject("Scripting.FileSystemObject")
+dim wSh														'Prepare windows shell object
+Set wSh = WScript.CreateObject("WScript.Shell")
 if not fso.FileExists(binLoc & "ffmpeg.exe") and not fso.FileExists(mainLoc & "ffmpeg.exe") then
 	msgbox "FFMPEG not found!" & vbNewLine & vbNewLine & "Please put FFMPEG.exe in same folder as ReEncode script" & vbnewline & "FFMPEG is available from https://www.ffmpeg.org/"
 else
@@ -65,17 +67,16 @@ else
 		For i = 0 to Wscript.Arguments.Count - 1
 			vidName = Replace(Wscript.Arguments(i), "\", "/")
 			vidNameOut = Replace(vidName, ".", " - REENCODE.")
-			if fso.FileExists(binLoc) then
+			vidNameOut = left(vidNameOut, inStrRev(vidNameOut, ".")) & "mp4"
+			if fso.FileExists(binLoc & "ffmpeg.exe") then
 				cmdString = chr(34) & binLoc & "ffmpeg.exe" & chr(34) & " -y -i " & chr(34) & vidName & chr(34)
 			else
 				cmdString = chr(34) & mainLoc & "ffmpeg.exe" & chr(34) & " -y -i " & chr(34) & vidName & chr(34)
 			end if
 			if videoResolution > 0 then cmdString = cmdString & " -vf " & chr(34) & "scale=-2:" & videoResolution & chr(34)
-			cmdString = cmdString & " -vcodec libx264 -crf " & CRF & " -profile:v baseline -level 3.0 -pix_fmt yuv420p -movflags faststart " & params & " " & chr(34) & vidNameOut & chr(34) & vbNewLine
+			cmdString = cmdstring & " -vcodec libx264 -crf " & CRF & " -profile:v baseline -level 3.0 -pix_fmt yuv420p -movflags faststart " & params & " " & chr(34) & vidNameOut & chr(34)
 		Next 
-		'msgbox cmdstring
-		dim wSh														'Prepare windows shell object
-		Set wSh = WScript.CreateObject("WScript.Shell")
-		wsh.run cmdString, 1, TRUE									'Execute
+		cmdstring = replace(cmdstring, "/", "\")
+		wsh.run cmdString									'Execute
 	end if
 end if
