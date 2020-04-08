@@ -4,9 +4,7 @@ Quick-use VBScript tools to re-encode videos using FFMPEG
 ## Use:
 Drag and drop the video(s) onto the vbscript file
 
-The ffmpeg.exe executable must either be in the same folder as the .vbs file, in a \bin subfolder, or in the system PATH
-
-see td0g.ca/r/ffmpeg for adding ffmpeg to the system path
+The ffmpeg.exe executable must either be in the same folder as the .vbs file, in a \bin subfolder, or in the [system PATH](td0g.ca/r/ffmpeg)
 
 ## ReEncode Scripts
 The scripts apply audio or video filters to the video
