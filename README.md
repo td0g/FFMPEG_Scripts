@@ -14,6 +14,7 @@ The scripts apply audio or video filters to the video
 For compatibility, the [recommendations on the ffmpeg website](https://trac.ffmpeg.org/wiki/Encode/H.264#Compatibility) have been followed
 
 
-##2Pass_Normalization
+## 2Pass_Normalization
 The script automates FFMPEG's 2-pass audio normalization filter 
+
 The output audio level can be adjusted by the [audioLevel variable in the script](https://github.com/td0g/FFMPEG_Scripts/blob/master/2Pass_Normalize.vbs#L18)
